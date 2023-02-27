@@ -8,7 +8,644 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
+    <Grid BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="DarkGray" KeyUp="Grid_KeyUp">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbDynamicFilter" Content="Dynamic filter" Click="cbDynamicFilter_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDynamicFilterSens" Text="Sens: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDynamicFilterSens" Minimum="0" Maximum="100" ValueChanged="slDynamicFilterSens_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDynamicFilterCutoffFreq" Text="Cutoff freq: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDynamicFilterCutoffFreq" Minimum="0" Maximum="100" ValueChanged="slDynamicFilterCutoffFreq_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="7*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDynamicFilterQ" Text="Q: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDynamicFilterQ" Minimum="0" Maximum="100" ValueChanged="slDynamicFilterQ_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDynamicFilterDirection" Text="Direction: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <RadioButton x:Name="cbDynamicFilterUp" GroupName="Direction" Content="Up" Checked="cbDynamicFilterUp_Checked" />
+                </Grid>
+                <Grid Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <RadioButton x:Name="cbDynamicFilterDown" GroupName="Direction" Content="Down" Checked="cbDynamicFilterDown_Checked" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbCompressor" Content="Compressor" Click="cbCompressor_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCompressorAttack" Text="Attack: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slCompressorAttack" Minimum="0" Maximum="100" ValueChanged="slCompressorAttack_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCompressorSustain" Text="Sustain: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slCompressorSustain" Minimum="0" Maximum="100" ValueChanged="slCompressorSustain_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbOverdrive" Content="Overdrive" Click="cbOverdrive_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbOverdriveTurbo" Content="Turbo" Click="cbOverdriveTurbo_Click" />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbOverdriveTone" Text="Tone: " />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slOverdriveTone" Minimum="0" Maximum="100" ValueChanged="slOverdriveTone_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbOverdriveDrive" Text="Drive: " />
+                </Grid>
+                <Grid Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slOverdriveDrive" Minimum="0" Maximum="100" ValueChanged="slOverdriveDrive_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbDistortion" Content="Distortion" Click="cbDistortion_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDistortionTone" Text="Tone: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDistortionTone" Minimum="0" Maximum="100" ValueChanged="slDistortionTone_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDistortionDist" Text="Dist: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDistortionDist" Minimum="0" Maximum="100" ValueChanged="slDistortionDist_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbPhaser" Content="Phaser" Click="cbPhaser_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbPhaserRate" Text="Rate: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slPhaserRate" Minimum="0" Maximum="100" ValueChanged="slPhaserRate_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbPhaserDepth" Text="Depth: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slPhaserDepth" Minimum="0" Maximum="100" ValueChanged="slPhaserDepth_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbPhaserResonance" Text="Resonance: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slPhaserResonance" Minimum="0" Maximum="100" ValueChanged="slPhaserResonance_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="5" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbEqualizer" Content="Equalizer" Click="cbEqualizer_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbEqualizerHiLevel" Text="Hi level: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slEqualizerHiLevel" Minimum="0" Maximum="100" ValueChanged="slEqualizerHiLevel_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbEqualizerMidLevel" Text="Mid level: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slEqualizerMidLevel" Minimum="0" Maximum="100" ValueChanged="slEqualizerMidLevel_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbEqualizerLowLevel" Text="Low level: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slEqualizerLowLevel" Minimum="0" Maximum="100" ValueChanged="slEqualizerLowLevel_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbEqualizerOutLevel" Text="Out level: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slEqualizerOutLevel" Minimum="0" Maximum="100" ValueChanged="slEqualizerOutLevel_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="6" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbDigitalDelay" Content="DigitalDelay" Click="cbDigitalDelay_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalDelayELevel" Text="Effect level: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalDelayELevel" Minimum="0" Maximum="100" ValueChanged="slDigitalDelayELevel_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalDelayFeedback" Text="Feedback: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalDelayFeedback" Minimum="0" Maximum="100" ValueChanged="slDigitalDelayFeedback_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="33*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalDelayDTime" Text="Delay time: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalDelayDTime" Minimum="0" Maximum="1000" ValueChanged="slDigitalDelayDTime_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="7" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbDigitalChorus" Content="DigitalChorus" Click="cbDigitalChorus_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalChorusRate" Text="Rate: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalChorusRate" Minimum="0" Maximum="100" ValueChanged="slDigitalChorusRate_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalChorusDepth" Text="Depth: " HorizontalAlignment="Stretch" Height="35" Margin="3,3,3,0" VerticalAlignment="Top" />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalChorusDepth" Minimum="0" Maximum="100" ValueChanged="slDigitalChorusDepth_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalChorusELevel" Text="Effect level: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalChorusELevel" Minimum="0" Maximum="100" ValueChanged="slDigitalChorusELevel_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalChorusPreDelay" Text="Pre delay: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalChorusPreDelay" Minimum="0" Maximum="100" ValueChanged="slDigitalChorusPreDelay_ValueChanged" />
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbDigitalChorusFeedback" Text="Feedback: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slDigitalChorusFeedback" Minimum="0" Maximum="100" ValueChanged="slDigitalChorusFeedback_ValueChanged" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="8" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCommon" Text="Common" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCommonMasterVolume" Text="Master volume: " />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Slider x:Name="slCommonMasterVolume" Minimum="0" Maximum="100" ValueChanged="slCommonMasterVolume_ValueChanged" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCommonEV5Parameter" Text="EV-5 parameter: " />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbCommonEV5Parameter" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbCommonEV5Parameter_SelectionChanged">
+                        <x:String>Off</x:String>
+                        <x:String>Dynamic filter - Sens</x:String>
+                        <x:String>Dynamic filter - Cutoff freq</x:String>
+                        <x:String>Dynamic filter - Q</x:String>
+                        <x:String>Dynamic filter - Up/Down</x:String>
+                        <x:String>Compressor - Attack</x:String>
+                        <x:String>Compressor - Sustain</x:String>
+                        <x:String>Overdrive - Tone</x:String>
+                        <x:String>Overdrive - Drive</x:String>
+                        <x:String>Overdrive - Turbo</x:String>
+                        <x:String>Distortion - Tone</x:String>
+                        <x:String>Distortion - Dist</x:String>
+                        <x:String>Phaser - Rate</x:String>
+                        <x:String>Phaser - Depth</x:String>
+                        <x:String>Phaser - Resonance</x:String>
+                        <x:String>Equalizer - Hi level</x:String>
+                        <x:String>Equalizer - Mid level</x:String>
+                        <x:String>Equalizer - Low level</x:String>
+                        <x:String>Equalizer - Out level</x:String>
+                        <x:String>Digital delay - Effect level</x:String>
+                        <x:String>Digital delay - Delay time</x:String>
+                        <x:String>Digital delay - Feedback</x:String>
+                        <x:String>Digital chorus - Rate</x:String>
+                        <x:String>Digital chorus - Depth</x:String>
+                        <x:String>Digital chorus - Effect level</x:String>
+                        <x:String>Digital chorus - Pre delay</x:String>
+                        <x:String>Digital chorus - Feedback</x:String>
+                        <x:String>Master volume</x:String>
+                    </ComboBox>
+                </Grid>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="13*" />
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="10*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <Button x:Name="btnSave" Content="Read" HorizontalAlignment="Stretch" Height="35" Margin="3,3,3,0" VerticalAlignment="Top" Click="btnRead_Click" />
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBlock x:Name="tbCommonName" Text="Name: " HorizontalAlignment="Stretch" Height="35" Margin="3,3,3,0" VerticalAlignment="Top" />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <TextBox x:Name="tbName" HorizontalAlignment="Stretch" Height="35" Margin="3,3,3,0" VerticalAlignment="Top" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbCommonExtControlOut1" Content="Ext control out 1" Checked="cbCommonExtControlOut1_Click" />
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <CheckBox x:Name="cbCommonExtControlOut2" Content="Ext control out 2" Checked="cbCommonExtControlOut2_Click" />
+                </Grid>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="9" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2" Background="White">
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="7*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="6*" />
+                    <ColumnDefinition Width="8*" />
+                    <ColumnDefinition Width="6*" />
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="0" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbPatchBankAndGroup" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbPatchBankAndGroup_SelectionChanged" >
+                        <x:String>Group A, Bank 1, Patch 1</x:String>
+                        <x:String>Group A, Bank 1, Patch 2</x:String>
+                        <x:String>Group A, Bank 1, Patch 3</x:String>
+                        <x:String>Group A, Bank 1, Patch 4</x:String>
+                        <x:String>Group A, Bank 1, Patch 5</x:String>
+                        <x:String>Group A, Bank 1, Patch 6</x:String>
+                        <x:String>Group A, Bank 1, Patch 7</x:String>
+                        <x:String>Group A, Bank 1, Patch 8</x:String>
+                        <x:String>Group A, Bank 2, Patch 1</x:String>
+                        <x:String>Group A, Bank 2, Patch 2</x:String>
+                        <x:String>Group A, Bank 2, Patch 3</x:String>
+                        <x:String>Group A, Bank 2, Patch 4</x:String>
+                        <x:String>Group A, Bank 2, Patch 5</x:String>
+                        <x:String>Group A, Bank 2, Patch 6</x:String>
+                        <x:String>Group A, Bank 2, Patch 7</x:String>
+                        <x:String>Group A, Bank 2, Patch 8</x:String>
+                        <x:String>Group A, Bank 3, Patch 1</x:String>
+                        <x:String>Group A, Bank 3, Patch 2</x:String>
+                        <x:String>Group A, Bank 3, Patch 3</x:String>
+                        <x:String>Group A, Bank 3, Patch 4</x:String>
+                        <x:String>Group A, Bank 3, Patch 5</x:String>
+                        <x:String>Group A, Bank 3, Patch 6</x:String>
+                        <x:String>Group A, Bank 3, Patch 7</x:String>
+                        <x:String>Group A, Bank 3, Patch 8</x:String>
+                        <x:String>Group A, Bank 4, Patch 1</x:String>
+                        <x:String>Group A, Bank 4, Patch 2</x:String>
+                        <x:String>Group A, Bank 4, Patch 3</x:String>
+                        <x:String>Group A, Bank 4, Patch 4</x:String>
+                        <x:String>Group A, Bank 4, Patch 5</x:String>
+                        <x:String>Group A, Bank 4, Patch 6</x:String>
+                        <x:String>Group A, Bank 4, Patch 7</x:String>
+                        <x:String>Group A, Bank 4, Patch 8</x:String>
+                        <x:String>Group A, Bank 5, Patch 1</x:String>
+                        <x:String>Group A, Bank 5, Patch 2</x:String>
+                        <x:String>Group A, Bank 5, Patch 3</x:String>
+                        <x:String>Group A, Bank 5, Patch 4</x:String>
+                        <x:String>Group A, Bank 5, Patch 5</x:String>
+                        <x:String>Group A, Bank 5, Patch 6</x:String>
+                        <x:String>Group A, Bank 5, Patch 7</x:String>
+                        <x:String>Group A, Bank 5, Patch 8</x:String>
+                        <x:String>Group A, Bank 6, Patch 1</x:String>
+                        <x:String>Group A, Bank 6, Patch 2</x:String>
+                        <x:String>Group A, Bank 6, Patch 3</x:String>
+                        <x:String>Group A, Bank 6, Patch 4</x:String>
+                        <x:String>Group A, Bank 6, Patch 5</x:String>
+                        <x:String>Group A, Bank 6, Patch 6</x:String>
+                        <x:String>Group A, Bank 6, Patch 7</x:String>
+                        <x:String>Group A, Bank 6, Patch 8</x:String>
+                        <x:String>Group A, Bank 7, Patch 1</x:String>
+                        <x:String>Group A, Bank 7, Patch 2</x:String>
+                        <x:String>Group A, Bank 7, Patch 3</x:String>
+                        <x:String>Group A, Bank 7, Patch 4</x:String>
+                        <x:String>Group A, Bank 7, Patch 5</x:String>
+                        <x:String>Group A, Bank 7, Patch 6</x:String>
+                        <x:String>Group A, Bank 7, Patch 7</x:String>
+                        <x:String>Group A, Bank 7, Patch 8</x:String>
+                        <x:String>Group A, Bank 8, Patch 1</x:String>
+                        <x:String>Group A, Bank 8, Patch 2</x:String>
+                        <x:String>Group A, Bank 8, Patch 3</x:String>
+                        <x:String>Group A, Bank 8, Patch 4</x:String>
+                        <x:String>Group A, Bank 8, Patch 5</x:String>
+                        <x:String>Group A, Bank 8, Patch 6</x:String>
+                        <x:String>Group A, Bank 8, Patch 7</x:String>
+                        <x:String>Group A, Bank 8, Patch 8</x:String>
+                        <x:String>Group B, Bank 1, Patch 1</x:String>
+                        <x:String>Group B, Bank 1, Patch 2</x:String>
+                        <x:String>Group B, Bank 1, Patch 3</x:String>
+                        <x:String>Group B, Bank 1, Patch 4</x:String>
+                        <x:String>Group B, Bank 1, Patch 5</x:String>
+                        <x:String>Group B, Bank 1, Patch 6</x:String>
+                        <x:String>Group B, Bank 1, Patch 7</x:String>
+                        <x:String>Group B, Bank 1, Patch 8</x:String>
+                        <x:String>Group B, Bank 2, Patch 1</x:String>
+                        <x:String>Group B, Bank 2, Patch 2</x:String>
+                        <x:String>Group B, Bank 2, Patch 3</x:String>
+                        <x:String>Group B, Bank 2, Patch 4</x:String>
+                        <x:String>Group B, Bank 2, Patch 5</x:String>
+                        <x:String>Group B, Bank 2, Patch 6</x:String>
+                        <x:String>Group B, Bank 2, Patch 7</x:String>
+                        <x:String>Group B, Bank 2, Patch 8</x:String>
+                        <x:String>Group B, Bank 3, Patch 1</x:String>
+                        <x:String>Group B, Bank 3, Patch 2</x:String>
+                        <x:String>Group B, Bank 3, Patch 3</x:String>
+                        <x:String>Group B, Bank 3, Patch 4</x:String>
+                        <x:String>Group B, Bank 3, Patch 5</x:String>
+                        <x:String>Group B, Bank 3, Patch 6</x:String>
+                        <x:String>Group B, Bank 3, Patch 7</x:String>
+                        <x:String>Group B, Bank 3, Patch 8</x:String>
+                        <x:String>Group B, Bank 4, Patch 1</x:String>
+                        <x:String>Group B, Bank 4, Patch 2</x:String>
+                        <x:String>Group B, Bank 4, Patch 3</x:String>
+                        <x:String>Group B, Bank 4, Patch 4</x:String>
+                        <x:String>Group B, Bank 4, Patch 5</x:String>
+                        <x:String>Group B, Bank 4, Patch 6</x:String>
+                        <x:String>Group B, Bank 4, Patch 7</x:String>
+                        <x:String>Group B, Bank 4, Patch 8</x:String>
+                        <x:String>Group B, Bank 5, Patch 1</x:String>
+                        <x:String>Group B, Bank 5, Patch 2</x:String>
+                        <x:String>Group B, Bank 5, Patch 3</x:String>
+                        <x:String>Group B, Bank 5, Patch 4</x:String>
+                        <x:String>Group B, Bank 5, Patch 5</x:String>
+                        <x:String>Group B, Bank 5, Patch 6</x:String>
+                        <x:String>Group B, Bank 5, Patch 7</x:String>
+                        <x:String>Group B, Bank 5, Patch 8</x:String>
+                        <x:String>Group B, Bank 6, Patch 1</x:String>
+                        <x:String>Group B, Bank 6, Patch 2</x:String>
+                        <x:String>Group B, Bank 6, Patch 3</x:String>
+                        <x:String>Group B, Bank 6, Patch 4</x:String>
+                        <x:String>Group B, Bank 6, Patch 5</x:String>
+                        <x:String>Group B, Bank 6, Patch 6</x:String>
+                        <x:String>Group B, Bank 6, Patch 7</x:String>
+                        <x:String>Group B, Bank 6, Patch 8</x:String>
+                        <x:String>Group B, Bank 7, Patch 1</x:String>
+                        <x:String>Group B, Bank 7, Patch 2</x:String>
+                        <x:String>Group B, Bank 7, Patch 3</x:String>
+                        <x:String>Group B, Bank 7, Patch 4</x:String>
+                        <x:String>Group B, Bank 7, Patch 5</x:String>
+                        <x:String>Group B, Bank 7, Patch 6</x:String>
+                        <x:String>Group B, Bank 7, Patch 7</x:String>
+                        <x:String>Group B, Bank 7, Patch 8</x:String>
+                        <x:String>Group B, Bank 8, Patch 1</x:String>
+                        <x:String>Group B, Bank 8, Patch 2</x:String>
+                        <x:String>Group B, Bank 8, Patch 3</x:String>
+                        <x:String>Group B, Bank 8, Patch 4</x:String>
+                        <x:String>Group B, Bank 8, Patch 5</x:String>
+                        <x:String>Group B, Bank 8, Patch 6</x:String>
+                        <x:String>Group B, Bank 8, Patch 7</x:String>
+                        <x:String>Group B, Bank 8, Patch 8</x:String>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="1" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <RadioButton x:Name="cbGroupA" GroupName="Group"  Content="Group A" Checked="cbGroupA_Checked" />
+                </Grid>
+                <Grid Grid.Column="2" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <RadioButton x:Name="cbGroupB" GroupName="Group" Content="Group B" Checked="cbGroupB_Checked" />
+                </Grid>
+                <Grid Grid.Column="3" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbBank" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbBank_SelectionChanged" >
+                        <x:String>Bank 1</x:String>
+                        <x:String>Bank 2</x:String>
+                        <x:String>Bank 3</x:String>
+                        <x:String>Bank 4</x:String>
+                        <x:String>Bank 5</x:String>
+                        <x:String>Bank 6</x:String>
+                        <x:String>Bank 7</x:String>
+                        <x:String>Bank 8</x:String>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="4" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbPatch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbPatch_SelectionChanged" >
+                        <x:String>Patch 1</x:String>
+                        <x:String>Patch 2</x:String>
+                        <x:String>Patch 3</x:String>
+                        <x:String>Patch 4</x:String>
+                        <x:String>Patch 5</x:String>
+                        <x:String>Patch 6</x:String>
+                        <x:String>Patch 7</x:String>
+                        <x:String>Patch 8</x:String>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="5" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbMidiDevice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbMidiDevice_SelectionChanged" >
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Column="6" BorderBrush="Black" BorderThickness="1" Margin="2,2,2,2" Padding="2,2,2,2">
+                    <ComboBox x:Name="cbDevice" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectionChanged="cbDevice_SelectionChanged"  >
+                        <x:String>Device 1</x:String>
+                        <x:String>Device 2</x:String>
+                        <x:String>Device 3</x:String>
+                        <x:String>Device 4</x:String>
+                        <x:String>Device 5</x:String>
+                        <x:String>Device 6</x:String>
+                        <x:String>Device 7</x:String>
+                        <x:String>Device 8</x:String>
+                        <x:String>Device 9</x:String>
+                        <x:String>Device 10</x:String>
+                        <x:String>Device 11</x:String>
+                        <x:String>Device 12</x:String>
+                        <x:String>Device 13</x:String>
+                        <x:String>Device 14</x:String>
+                        <x:String>Device 15</x:String>
+                        <x:String>Device 16</x:String>
+                    </ComboBox>
+                </Grid>
+            </Grid>
+        </Grid>
     </Grid>
 </Page>

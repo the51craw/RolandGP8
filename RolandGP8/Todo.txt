@@ -1,0 +1,6 @@
+﻿* Equalizer levels are +/- around 50, fix texts.
+
+* Delay time are two bytes.
+
+Fix checkboxes.
+

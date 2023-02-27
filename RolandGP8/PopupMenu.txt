@@ -1,0 +1,17 @@
+                    //MessageDialog warning = new MessageDialog("Please select your MIDI device:");
+                    Int32 i = -1;
+                    PopupMenu warning = new PopupMenu();
+                    warning.Commands.Add(new UICommand { Label = "Please select your MIDI device:", Id = i++ });
+                    //warning.Title = "Roland GP-8";
+                    foreach (String name in devices)
+                    {
+                        //if (i < 3)
+                        {
+                            try
+                            {
+                                warning.Commands.Add(new UICommand { Label = name, Id = i++ });
+                            }
+                            catch { }
+                        }
+                    }
+                    var response = await warning.ShowAsync(new Windows.Foundation.Point(mainPage.Height / 2, mainPage.Width / 2));
